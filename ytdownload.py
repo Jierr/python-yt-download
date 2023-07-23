@@ -3,7 +3,7 @@ from time import sleep
 from pytube import YouTube, Playlist
 from moviepy.editor import *
 import argparse
-from multiprocessing import Process, Queue, cpu_count
+from multiprocessing import Process, Queue, cpu_count, freeze_support
 
 processes = {}
 max_proccesses = cpu_count()
@@ -117,6 +117,8 @@ def download_video(link, playlistname="download"):
 
 
 if __name__ == "__main__":
+    if sys.platform.startswith("win"):
+        freeze_support()
     parser = argparse.ArgumentParser(description="Youtube Video or Playlist downloader")
     parser.add_argument("--link", action="store", help="Link to a video or playlist")
     parser.add_argument("--out", action="store", default="download", help="Directory, where to store downloaded files")

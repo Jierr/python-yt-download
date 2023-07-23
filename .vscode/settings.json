@@ -1,4 +1,5 @@
 {
+    "cmake.cmakePath": "C:\\Program Files\\CMake\\bin\\cmake.exe",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
